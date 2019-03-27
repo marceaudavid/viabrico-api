@@ -1,0 +1,26 @@
+{
+  "name": "srm",
+  "version": "1.0.0",
+  "description": "A CRUD API used as a SRM",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marceaudavid/srm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marceaudavid/srm/issues"
+  },
+  "homepage": "https://github.com/marceaudavid/srm#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "^7.9.0",
+    "sequelize": "^5.2.1"
+  }
+}
