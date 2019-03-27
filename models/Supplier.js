@@ -8,19 +8,19 @@ const Supplier = db.define("supplier", {
   },
   description: {
     type: Sequelize.TEXT,
-    allowNull: true
+    allowNull: false
   },
   address: {
     type: Sequelize.TEXT,
-    allowNull: true
+    allowNull: false
   },
   phone: {
     type: Sequelize.INTEGER,
-    allowNull: true
+    allowNull: false
   },
   mail: {
     type: Sequelize.STRING,
-    allowNull: true
+    allowNull: false
   }
 });
 

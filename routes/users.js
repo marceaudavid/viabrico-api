@@ -26,15 +26,35 @@ router.get("/:id", auth, (req, res) => {
     if (err) {
       res.sendStatus(403);
     } else {
-      verifyId(Users, req.params.id)
+      verifyId(User, req.params.id)
         .then(isValid => {
           if (isValid) {
-            return Users.findByPk(req.params.id);
+            return User.findByPk(req.params.id);
           } else {
             res.sendStatus(404);
           }
         })
         .then(supplier => res.json(supplier))
+        .catch(() => res.sendStatus(400));
+    }
+  });
+});
+
+// Delete an existing user
+router.delete("/:id", auth, (req, res) => {
+  jwt.verify(req.token, "secretkey", (err, data) => {
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      verifyId(User, req.params.id)
+        .then(isValid => {
+          if (isValid) {
+            return User.destroy({ where: { id: req.params.id } });
+          } else {
+            res.sendStatus(400);
+          }
+        })
+        .then(() => res.send({ msg: `Supplier ${req.params.id} deleted` }))
         .catch(() => res.sendStatus(400));
     }
   });

@@ -25,8 +25,7 @@ app.use(cors());
 app.use("/register", require("./routes/register"));
 app.use("/login", require("./routes/login"));
 app.use("/suppliers", require("./routes/suppliers"));
-
-app.get("/", (req, res) => res.sendFile(path.join(`${__dirname}/README.md`)));
+app.use("/users", require("./routes/users"));
 
 // Define the port and serve the API
 const PORT = process.env.PORT || 3000;
