@@ -4,10 +4,6 @@ const router = express.Router();
 
 const User = require("../models/User");
 
-router.get("/", (req, res) => {
-  res.send("register");
-});
-
 router.post("/", (req, res) => {
   const { email, password } = req.body;
   bcrypt.hash(password, 10).then(hash => {

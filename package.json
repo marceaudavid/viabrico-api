@@ -1,5 +1,5 @@
 {
-  "name": "srm",
+  "name": "viabrico",
   "version": "1.0.0",
   "description": "A CRUD API used as a SRM",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marceaudavid/srm.git"
+    "url": "git+https://github.com/marceaudavid/viabrico.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "marceaudavid",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marceaudavid/srm/issues"
+    "url": "https://github.com/marceaudavid/viabrico/issues"
   },
-  "homepage": "https://github.com/marceaudavid/srm#readme",
+  "homepage": "https://github.com/marceaudavid/viabrico#readme",
   "dependencies": {
     "bcrypt": "^3.0.5",
     "cors": "^2.8.5",

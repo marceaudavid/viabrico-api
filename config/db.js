@@ -1,6 +1,4 @@
 const Sequelize = require("sequelize");
 
-module.exports = new Sequelize("srm", "marceau", "root", {
-  host: "localhost",
-  dialect: "postgres"
-});
+const uri = process.env.DATABASE_URL || `postgres://marceau:root@localhost:5432/viabrico`;
+module.exports = new Sequelize(uri);

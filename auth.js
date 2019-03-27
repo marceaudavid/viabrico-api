@@ -1,3 +1,4 @@
+// Auth middleware to check if the Authentication Bearer is passed
 module.exports = (req, res, next) => {
   const bearerHeader = req.headers["authorization"];
   if (typeof bearerHeader !== "undefined") {

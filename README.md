@@ -1,2 +1,1 @@
-# srm
-A CRUD API used as a SRM
+# Viabrico API

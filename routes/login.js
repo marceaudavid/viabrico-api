@@ -5,10 +5,6 @@ const router = express.Router();
 
 const User = require("../models/User");
 
-router.get("/", (req, res) => {
-  res.send("login");
-});
-
 router.post("/", (req, res) => {
   const { email, password } = req.body;
   User.findOne({ where: { email } }).then(user => {
