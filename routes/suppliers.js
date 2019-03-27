@@ -21,8 +21,16 @@ router.post("/", (req, res) => {
     .catch(err => res.send(err));
 });
 
-router.put("/:id", (req, res) => {});
+router.put("/:id", (req, res) => {
+  Supplier.update(req.body, { where: { id: req.params.id } })
+    .then(supplier => res.sendStatus(200))
+    .catch(err => res.send(err));
+});
 
-router.delete("/:id", (req, res) => {});
+router.delete("/:id", (req, res) => {
+  Supplier.destroy({ where: { id: req.params.id } })
+    .then(supplier => res.sendStatus(200))
+    .catch(err => res.send(err));
+});
 
 module.exports = router;
