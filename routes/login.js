@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
         }
       });
     } else {
-      res.sendStatus(404);
+      res.status(404).json({ error: "User doesn't exists" });
     }
   });
 });

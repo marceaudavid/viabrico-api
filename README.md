@@ -71,9 +71,10 @@ The register endpoint is used for register new users
 | `/register`   | `POST`          | Register a new user |
 
 **Payload :**
-| Name | Type | Description |
-| ------------- | -------- | ---------------------------------------------- |
-| `email` | _String_ | The user's email |
+
+| Name       | Type     | Description         |
+| ---------- | -------- | ------------------- |
+| `email`    | _String_ | The user's email    |
 | `password` | _String_ | The user's password |
 
 ### Login
@@ -87,9 +88,10 @@ The login endpoint is used for generate and return a new Json Web Token in order
 | `/login`      | `POST`          | Get all users |
 
 **Payload :**
-| Name | Type | Description |
-| ------------- | -------- | ---------------------------------------------- |
-| `email` | _String_ | The user's email |
+
+| Name       | Type     | Description         |
+| ---------- | -------- | ------------------- |
+| `email`    | _String_ | The user's email    |
 | `password` | _String_ | The user's password |
 
 ### Suppliers

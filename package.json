@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/marceaudavid/viabrico#readme",
   "dependencies": {
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^3.0.6",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.9.0",
-    "sequelize": "^5.2.1"
+    "sequelize": "^5.7.6"
   }
 }
