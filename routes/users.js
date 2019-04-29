@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 const auth = require("../auth");
-const verifyId = require("../utils/validators");
+const verifyId = require("../validators");
 
 const User = require("../models/User");
 
@@ -14,7 +14,7 @@ router.get("/", auth, (req, res) => {
       res.sendStatus(403);
     } else {
       User.findAll()
-        .then(suppliers => res.json(suppliers))
+        .then(users => res.json(users))
         .catch(() => res.sendStatus(400));
     }
   });
@@ -34,7 +34,7 @@ router.get("/:id", auth, (req, res) => {
             res.sendStatus(404);
           }
         })
-        .then(supplier => res.json(supplier))
+        .then(user => res.json(user))
         .catch(() => res.sendStatus(400));
     }
   });
@@ -54,7 +54,7 @@ router.delete("/:id", auth, (req, res) => {
             res.sendStatus(400);
           }
         })
-        .then(() => res.send({ msg: `Supplier ${req.params.id} deleted` }))
+        .then(() => res.send({ msg: `User ${req.params.id} deleted` }))
         .catch(() => res.sendStatus(400));
     }
   });

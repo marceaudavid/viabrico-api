@@ -1,5 +1,6 @@
 const path = require("path");
 const cors = require("cors");
+const helmet = require("helmet");
 const express = require("express");
 const app = express();
 
@@ -20,6 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Set CORS policy
 app.use(cors());
+app.use(helmet());
+
+app.get("/", (req, res) => res.send("Welcome !"));
 
 // Handling routes
 app.use("/register", require("./routes/register"));
