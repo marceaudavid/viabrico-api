@@ -18,7 +18,7 @@ const Supplier = db.define("supplier", {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  mail: {
+  email: {
     type: Sequelize.STRING,
     allowNull: false
   }

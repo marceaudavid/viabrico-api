@@ -1,4 +1,3 @@
-const path = require("path");
 const cors = require("cors");
 const helmet = require("helmet");
 const express = require("express");
@@ -6,6 +5,7 @@ const app = express();
 
 const db = require("./config/db");
 
+// Connect to the database
 db.authenticate()
   .then(() => {
     console.log("Connection has been established successfully.");
@@ -16,13 +16,14 @@ db.authenticate()
 
 // Beautify Json
 app.set("json spaces", 1);
-// Set body-parsing for query string and json
+// Set body-parsing for query string and json body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Set CORS policy
 app.use(cors());
 app.use(helmet());
 
+// Default message
 app.get("/", (req, res) => res.send("Welcome !"));
 
 // Handling routes

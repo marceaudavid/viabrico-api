@@ -5,6 +5,7 @@ const router = express.Router();
 
 const User = require("../models/User");
 
+// Check if a user exist, if is password match the hash and return him a token
 router.post("/", (req, res) => {
   const { email, password } = req.body;
   User.findOne({ where: { email } }).then(user => {

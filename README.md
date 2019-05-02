@@ -77,6 +77,13 @@ The register endpoint is used for register new users
 | `email`    | _String_ | The user's email    |
 | `password` | _String_ | The user's password |
 
+**Errors :**
+
+| Code  | Payload                        | Description               |
+| ----- | ------------------------------ | ------------------------- |
+| `404` | `error: "User doesn't exists"` | The user does not exist   |
+| `403` | Forbidden                      | The authentication failed |
+
 ### Login
 
 The login endpoint is used for generate and return a new Json Web Token in order to authenticate registered users on this API clients.
@@ -93,6 +100,13 @@ The login endpoint is used for generate and return a new Json Web Token in order
 | ---------- | -------- | ------------------- |
 | `email`    | _String_ | The user's email    |
 | `password` | _String_ | The user's password |
+
+**Errors :**
+
+| Code  | Payload                                              | Description                                  |
+| ----- | ---------------------------------------------------- | -------------------------------------------- |
+| `400` | `error: "User doesn't exists"`                       | The email is already taken by another user   |
+| `500` | `error: "User can't be created, please retry later"` | There was a problem during the user creation |
 
 ### Suppliers
 
@@ -118,6 +132,14 @@ The supplier ressources is a set of viabrico suppliers.
 | `updatedAt`   | _Date_   | False    | The supplier's update date (Auto Fullfilled)   |
 | `createdAt`   | _Date_   | False    | The supplier's creation date (Auto Fullfilled) |
 
+**Errors :**
+
+| Code  | Payload     | Description                       |
+| ----- | ----------- | --------------------------------- |
+| `400` | Bad Request | Error with the request            |
+| `403` | Forbidden   | Token is not valid                |
+| `404` | Not Found   | The asked ressource doesn't exist |
+
 ### Users
 
 The user ressources is the viabrico's dataset of users.
@@ -138,6 +160,14 @@ The user ressources is the viabrico's dataset of users.
 | `hash`      | _String_ | True     | The user's password hash                       |
 | `updatedAt` | _Date_   | False    | The supplier's update date (Auto Fullfilled)   |
 | `createdAt` | _Date_   | False    | The supplier's creation date (Auto Fullfilled) |
+
+**Errors :**
+
+| Code  | Payload     | Description                       |
+| ----- | ----------- | --------------------------------- |
+| `400` | Bad Request | Error with the request            |
+| `403` | Forbidden   | Token is not valid                |
+| `404` | Not Found   | The asked ressource doesn't exist |
 
 ## About
 

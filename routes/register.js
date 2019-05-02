@@ -4,6 +4,7 @@ const router = express.Router();
 
 const User = require("../models/User");
 
+// Create a new user with email and password
 router.post("/", (req, res) => {
   const { email, password } = req.body;
   bcrypt.hash(password, 10).then(hash => {
