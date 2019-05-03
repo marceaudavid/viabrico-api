@@ -13,7 +13,9 @@ router.get("/", auth, (req, res) => {
     if (err) {
       res.sendStatus(403);
     } else {
-      Supplier.findAll()
+      Supplier.findAll({
+        where: req.query
+      })
         .then(suppliers => res.json(suppliers))
         .catch(() => res.sendStatus(400));
     }
