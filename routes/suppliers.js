@@ -6,15 +6,41 @@ const auth = require("../auth");
 const verifyId = require("../validators");
 
 const Supplier = require("../models/Supplier");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 // Get all suppliers and return them
 router.get("/", auth, (req, res) => {
+  const keyword = req.query.keyword;
   jwt.verify(req.token, "secretkey", (err, data) => {
     if (err) {
       res.sendStatus(403);
     } else {
       Supplier.findAll({
-        where: req.query
+        where: {
+          [Op.or]: [
+            {
+              name: {
+                [Op.like]: "%" + keyword + "%"
+              }
+            },
+            {
+              description: {
+                [Op.like]: "%" + keyword + "%"
+              }
+            },
+            {
+              address: {
+                [Op.like]: "%" + keyword + "%"
+              }
+            },
+            {
+              email: {
+                [Op.like]: "%" + keyword + "%"
+              }
+            }
+          ]
+        }
       })
         .then(suppliers => res.json(suppliers))
         .catch(() => res.sendStatus(400));
