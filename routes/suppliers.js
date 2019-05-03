@@ -16,34 +16,40 @@ router.get("/", auth, (req, res) => {
     if (err) {
       res.sendStatus(403);
     } else {
-      Supplier.findAll({
-        where: {
-          [Op.or]: [
-            {
-              name: {
-                [Op.like]: "%" + keyword + "%"
+      if (keyword === undefined) {
+        Supplier.findAll({})
+          .then(suppliers => res.json(suppliers))
+          .catch(() => res.sendStatus(400));
+      } else {
+        Supplier.findAll({
+          where: {
+            [Op.or]: [
+              {
+                name: {
+                  [Op.like]: "%" + keyword + "%"
+                }
+              },
+              {
+                description: {
+                  [Op.like]: "%" + keyword + "%"
+                }
+              },
+              {
+                address: {
+                  [Op.like]: "%" + keyword + "%"
+                }
+              },
+              {
+                email: {
+                  [Op.like]: "%" + keyword + "%"
+                }
               }
-            },
-            {
-              description: {
-                [Op.like]: "%" + keyword + "%"
-              }
-            },
-            {
-              address: {
-                [Op.like]: "%" + keyword + "%"
-              }
-            },
-            {
-              email: {
-                [Op.like]: "%" + keyword + "%"
-              }
-            }
-          ]
-        }
-      })
-        .then(suppliers => res.json(suppliers))
-        .catch(() => res.sendStatus(400));
+            ]
+          }
+        })
+          .then(suppliers => res.json(suppliers))
+          .catch(() => res.sendStatus(400));
+      }
     }
   });
 });
